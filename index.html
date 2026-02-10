@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Bites - Premium Food Delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Lanka Furnish</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+                <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-icon">
+                    <path id="sun-icon" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path id="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"/>
+                </svg>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <span class="cart-count">0</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 6h15l-1.5 9h-11l-2-8H6zm0 0L4 12h11" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9" cy="20" r="1" fill="#D4AF37"/>
+                    <circle cx="17" cy="20" r="1" fill="#D4AF37"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <!-- Left Column: Content -->
+            <div class="hero-content">
+                <div class="brand-container">
+                    <h1 class="brand-name">Golden Bites</h1>
+                </div>
+                
+                <div class="headline-container">
+                    <h2 class="headline">
+                        Experience the Taste of
+                        <span class="highlight">Golden Perfection</span>
+                    </h2>
+                </div>
+                
+                <div class="description-container">
+                    <p class="description">
+                        Freshly prepared meals delivered to your doorstep. 
+                        Simple, fast, and delicious.
+                    </p>
+                </div>
+                
+                <div class="cta-container">
+                    <button class="btn btn-primary" onclick="scrollToMenu()">Order Now</button>
+                    <button class="btn btn-secondary" onclick="scrollToMenu()">Explore Menu</button>
+                </div>
+            </div>
+            
+            <!-- Right Column: Visual -->
+            <div class="hero-visual">
+                <div class="food-image-container">
+                    <img src="download (1).png" 
+                         alt="Premium food presentation" 
+                         class="food-image">
+                </div>
+                
+                <!-- Floating decorative accents -->
+                <div class="accent accent-1"></div>
+                <div class="accent accent-2"></div>
+                <div class="accent accent-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Menu</h2>
+                <p>Discover our delicious selection of meals</p>
+            </div>
+            
+            <!-- Category Filter -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="Burgers">Burgers</button>
+                <button class="filter-btn" data-category="Pizza">Pizza</button>
+                <button class="filter-btn" data-category="Desserts">Desserts</button>
+                <button class="filter-btn" data-category="Drinks">Drinks</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div id="menu-grid" class="menu-grid">
+                <!-- Food items will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Golden Bites</h2>
+                    <p>We're passionate about delivering the best food experience to your doorstep. Our chefs use only the freshest ingredients to create delicious meals that will satisfy your cravings.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <h3>Quality</h3>
+                            <p>Fresh ingredients, carefully selected</p>
+                        </div>
+                        <div class="feature">
+                            <h3>Speed</h3>
+                            <p>Fast delivery, hot and fresh</p>
+                        </div>
+                        <div class="feature">
+                            <h3>Taste</h3>
+                            <p>Amazing flavors in every bite</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="kitchen-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be injected here -->
+        </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span>Total:</span>
+                <span id="cart-total">Rs 0</span>
+            </div>
+            <button id="order-btn" class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Golden Bites</h3>
+                    <p>Delicious food delivered fast to your door. Quality ingredients, amazing flavors, and excellent service.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">📱</a>
+                        <a href="#" class="social-icon">📘</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Delivery</a></li>
+                        <li><a href="#">Takeaway</a></li>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Corporate Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p>📍 123 Food Street, Colombo</p>
+                        <p>📞 +94 112 345 678</p>
+                        <p>✉️ info@goldenbites.com</p>
+                        <p>⏰ Mon-Sun: 10AM - 10PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Golden Bites. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <input type="email" id="login-email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" onclick="openModal('register-modal')">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2>Register</h2>
+            <form id="register-form" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <input type="text" id="register-name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="register-email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="register-password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="register-confirm" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" onclick="openModal('login-modal')">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Check if this is a page refresh and show loading screen
+        window.addEventListener('beforeunload', function() {
+            // Store that we're navigating away
+            sessionStorage.setItem('showLoading', 'true');
+        });
+
+        // Check if we should show loading screen
+        if (sessionStorage.getItem('showLoading') === 'true') {
+            sessionStorage.removeItem('showLoading');
+            // Show loading screen for 2 seconds then redirect to main content
+            setTimeout(function() {
+                // Remove loading overlay if it exists
+                const loadingOverlay = document.getElementById('loading-overlay');
+                if (loadingOverlay) {
+                    loadingOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingOverlay.style.display = 'none';
+                    }, 500);
+                }
+            }, 2000);
+        }
+    </script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Bites - Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Golden Bites</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#menu">Menu</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-icon">
+                    <path id="sun-icon" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path id="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"/>
+                </svg>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <span class="cart-count">0</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 6h15l-1.5 9h-11l-2-8H6zm0 0L4 12h11" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9" cy="20" r="1" fill="#D4AF37"/>
+                    <circle cx="17" cy="20" r="1" fill="#D4AF37"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Cart</h2>
+                <p>Review your items and place your order</p>
+            </div>
+            
+            <div class="cart-container">
+                <div id="cart-items" class="cart-items">
+                    <!-- Cart items will be injected here -->
+                </div>
+                
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal">Rs 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery Fee</span>
+                            <span>Rs 100</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span id="cart-total">Rs 0</span>
+                        </div>
+                        <button id="order-btn" class="btn btn-primary btn-large" onclick="placeOrder()">Place Order</button>
+                        <button class="btn btn-secondary" onclick="clearCart()">Clear Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div id="cart-items-sidebar" class="cart-items">
+            <!-- Cart items will be injected here -->
+        </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span>Total:</span>
+                <span id="cart-total-sidebar">Rs 0</span>
+            </div>
+            <button id="order-btn-sidebar" class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Cart page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart count
+            updateCartCount();
+            
+            // Display cart items
+            displayCartItems();
+            
+            // Update totals
+            updateCartTotals();
+        });
+        
+        // Update cart totals for cart page
+        function updateCartTotals() {
+            const subtotal = getCartTotal();
+            const deliveryFee = 100;
+            const total = subtotal + deliveryFee;
+            
+            const subtotalElement = document.getElementById('cart-subtotal');
+            const totalElement = document.getElementById('cart-total');
+            
+            if (subtotalElement) {
+                subtotalElement.textContent = `Rs ${subtotal}`;
+            }
+            
+            if (totalElement) {
+                totalElement.textContent = `Rs ${total}`;
+            }
+        }
+        
+        // Display cart items for cart page
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartItemsSidebar = document.getElementById('cart-items-sidebar');
+            const cartTotalSidebar = document.getElementById('cart-total-sidebar');
+            
+            if (cart.length === 0) {
+                const emptyMessage = '<p class="empty-cart">Your cart is empty</p>';
+                if (cartItemsContainer) {
+                    cartItemsContainer.innerHTML = emptyMessage;
+                }
+                if (cartItemsSidebar) {
+                    cartItemsSidebar.innerHTML = emptyMessage;
+                }
+                if (cartTotalSidebar) {
+                    cartTotalSidebar.textContent = 'Rs 0';
+                }
+                return;
+            }
+            
+            let total = 0;
+            
+            // Update main cart page
+            if (cartItemsContainer) {
+                cartItemsContainer.innerHTML = '';
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <span class="cart-item-price">Rs ${item.price}</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                                <span class="quantity-display">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                            </div>
+                            <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+            }
+            
+            // Update sidebar
+            if (cartItemsSidebar) {
+                cartItemsSidebar.innerHTML = '';
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <span class="cart-item-price">Rs ${item.price}</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                                <span class="quantity-display">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                            </div>
+                            <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+                        </div>
+                    `;
+                    cartItemsSidebar.appendChild(cartItem);
+                });
+            }
+            
+            // Update sidebar total
+            if (cartTotalSidebar) {
+                cartTotalSidebar.textContent = `Rs ${total}`;
+            }
+            
+            // Update totals for cart page
+            updateCartTotals();
+        }
+        
+        // Clear cart function
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            displayCartItems();
+            showNotification('Cart cleared!');
+        }
+    </script>
+</body>
+</html>
