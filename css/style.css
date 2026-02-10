@@ -175,7 +175,7 @@ body {
 }
 
 /* Button Styling - Premium Minimal */
-.btn {
+.action {
     font-family: var(--font-heading);
     font-size: 16px;
     font-weight: 600;
@@ -191,7 +191,7 @@ body {
     box-shadow: var(--shadow-light);
 }
 
-.btn::before {
+.action::before {
     content: '';
     position: absolute;
     top: 0;
@@ -202,43 +202,43 @@ body {
     transition: left 0.5s;
 }
 
-.btn:hover::before {
+.action:hover::before {
     left: 100%;
 }
 
 /* Primary Button - Golden */
-.btn-primary {
+.action-primary {
     background: linear-gradient(135deg, var(--primary-color), #FFD700);
     color: #1E1E1E;
     box-shadow: var(--shadow-medium);
 }
 
-.btn-primary:hover {
+.action-primary:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-heavy);
     background: linear-gradient(135deg, #FFD700, var(--primary-color));
 }
 
-.btn-primary:active {
+.action-primary:active {
     transform: translateY(-1px);
 }
 
 /* Secondary Button - Minimal */
-.btn-secondary {
+.action-secondary {
     background: transparent;
     color: var(--text-color);
     border: 2px solid var(--accent-color);
     box-shadow: none;
 }
 
-.btn-secondary:hover {
+.action-secondary:hover {
     border-color: var(--primary-color);
     background: rgba(212, 175, 55, 0.1);
     transform: translateY(-3px);
     box-shadow: var(--shadow-light);
 }
 
-.btn-secondary:active {
+.action-secondary:active {
     transform: translateY(-1px);
 }
 
@@ -388,7 +388,7 @@ body {
     flex-wrap: wrap;
 }
 
-.filter-btn {
+.filter-action {
     padding: 10px 20px;
     background-color: var(--accent-color);
     border: none;
@@ -401,14 +401,14 @@ body {
     border: 2px solid transparent;
 }
 
-.filter-btn:hover {
+.filter-action:hover {
     background-color: var(--primary-color);
     color: #1E1E1E;
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
 }
 
-.filter-btn.active {
+.filter-action.active {
     background-color: var(--primary-color);
     color: #1E1E1E;
     border-color: var(--primary-color);
@@ -491,7 +491,7 @@ body {
     color: var(--primary-color);
 }
 
-.add-to-cart-btn {
+.add-to-cart-action {
     padding: 8px 16px;
     font-size: 14px;
     font-family: var(--font-heading);
@@ -504,7 +504,7 @@ body {
     transition: var(--transition-speed) var(--transition-ease);
 }
 
-.add-to-cart-btn:hover {
+.add-to-cart-action:hover {
     background-color: #FFD700;
     transform: translateY(-2px);
     box-shadow: var(--shadow-light);
@@ -578,7 +578,7 @@ body {
 .kitchen-image {
     width: 100%;
     height: 400px;
-    background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60');
+    background-image: url('https://www.google.com/imgres?q=interior%20design%20furniture%20website%20photo%20without%20words&imgurl=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1257%2F0599%2Ffiles%2Fjapandi-interior-design-ideas_600x600.webp%3Fv%3D1740991052&imgrefurl=https%3A%2F%2Fwww.allcottonandlinen.com%2Fblogs%2Fnews%2Fjapandi-interior-design-living-room%3Fsrsltid%3DAfmBOoq87dm_r_2nqMjr-fHjVM1pI2OxwgkCrgLckjEbPDmsBOKh1j5h&docid=7zlDfbfcalFwyM&tbnid=EdObWdOT1wWPHM&vet=12ahUKEwiRqtaSrc6SAxWuT2wGHV0NJykQnPAOegQIHxAA..i&w=600&h=480&hcb=2&ved=2ahUKEwiRqtaSrc6SAxWuT2wGHV0NJykQnPAOegQIHxAA');
     background-size: cover;
     background-position: center;
     border-radius: 16px;
@@ -651,7 +651,7 @@ body {
     gap: 10px;
 }
 
-.quantity-btn {
+.quantity-action {
     width: 36px;
     height: 36px;
     border: 1px solid var(--accent-color);
@@ -666,7 +666,7 @@ body {
     font-weight: 700;
 }
 
-.quantity-btn:hover {
+.quantity-action:hover {
     background-color: var(--accent-color);
     border-color: var(--primary-color);
     color: var(--primary-color);
@@ -680,7 +680,7 @@ body {
     color: var(--text-color);
 }
 
-.remove-btn {
+.remove-action {
     background: none;
     border: none;
     color: #ff4757;
@@ -692,7 +692,7 @@ body {
     font-family: var(--font-heading);
 }
 
-.remove-btn:hover {
+.remove-action:hover {
     background-color: rgba(255, 71, 87, 0.1);
 }
 
@@ -1123,7 +1123,7 @@ body {
     align-items: center;
 }
 
-.auth-buttons .btn {
+.auth-buttons .action {
     padding: 10px 20px;
     font-size: 14px;
     font-weight: 600;
@@ -1131,26 +1131,26 @@ body {
     transition: var(--transition-speed) var(--transition-ease);
 }
 
-.auth-buttons .btn-secondary {
+.auth-buttons .action-secondary {
     background-color: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     box-shadow: none;
 }
 
-.auth-buttons .btn-secondary:hover {
+.auth-buttons .action-secondary:hover {
     background-color: var(--primary-color);
     color: #1E1E1E;
 }
 
-.auth-buttons .btn-primary {
+.auth-buttons .action-primary {
     background: linear-gradient(135deg, var(--primary-color), #FFD700);
     color: #1E1E1E;
     border: none;
     box-shadow: var(--shadow-light);
 }
 
-.auth-buttons .btn-primary:hover {
+.auth-buttons .action-primary:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-medium);
 }
@@ -1350,7 +1350,7 @@ body {
         font-size: 16px;
     }
     
-    .btn {
+    .action {
         padding: 14px 24px;
         font-size: 14px;
     }
@@ -1374,7 +1374,7 @@ body {
         max-width: 300px;
     }
     
-    .btn {
+    .action {
         padding: 12px 20px;
         font-size: 13px;
     }
@@ -1395,7 +1395,7 @@ body {
         background: white;
     }
     
-    .btn {
+    .action {
         display: none;
     }
 }
@@ -1569,7 +1569,7 @@ body {
     margin: 30px 0;
 }
 
-.btn-large {
+.action-large {
     width: 100%;
     padding: 16px;
     font-size: 18px;

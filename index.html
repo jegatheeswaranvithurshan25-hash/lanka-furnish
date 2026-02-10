@@ -25,8 +25,8 @@
                 </ul>
             </nav>
             <div class="auth-buttons">
-                <a href="login.html" class="btn btn-secondary">Login</a>
-                <a href="register.html" class="btn btn-primary">Sign Up</a>
+                <a href="login.html" style="padding: 10px 28px; margin-right: 8px; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s;" id="action-login">Login</a>
+                <a href="register.html" style="padding: 10px 28px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s;" id="action-signup">Sign Up</a>
             </div>
             <div class="theme-toggle" onclick="toggleTheme()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-icon">
@@ -51,7 +51,7 @@
             <!-- Left Column: Content -->
             <div class="hero-content">
                 <div class="brand-container">
-                    <h1 class="brand-name">Golden Bites</h1>
+                    <h1 class="brand-name">Dream in Design</h1>
                 </div>
                 
                 <div class="headline-container">
@@ -63,23 +63,22 @@
                 
                 <div class="description-container">
                     <p class="description">
-                        Freshly prepared meals delivered to your doorstep. 
-                        Simple, fast, and delicious.
+                        Smart design, comfort refined,
+                        Beautiful furniture for every mind.
                     </p>
                 </div>
                 
                 <div class="cta-container">
-                    <button class="btn btn-primary" onclick="scrollToMenu()">Order Now</button>
-                    <button class="btn btn-secondary" onclick="scrollToMenu()">Explore Menu</button>
+                    <button onclick="scrollToMenu()" style="padding: 12px 32px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; margin-right: 8px; cursor: pointer; transition: background 0.3s;" id="action-order">Order Now</button>
+                    <button onclick="scrollToMenu()" style="padding: 12px 32px; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-explore">Explore Menu</button>
                 </div>
             </div>
             
             <!-- Right Column: Visual -->
             <div class="hero-visual">
                 <div class="food-image-container">
-                    <img src="<img src="download (1).png" alt="Premium food presentation" class="food-image"> (1).png" 
-                         alt="Premium food presentation" 
-                         class="food-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZQ97J6ylj6XJaa0BsfkBEbBT8MOb-s2oAg&s" alt="Premium food presentation" class="food-image">
+                         
                 </div>
                 
                 <!-- Floating decorative accents -->
@@ -95,19 +94,21 @@
         <div class="container">
             <div class="section-header">
                 <h2>Our Menu</h2>
-                <p>Discover our delicious selection of meals</p>
+                <p>Find the perfect furniture for your space with us.</p>
             </div>
             
             <!-- Category Filter -->
             <div class="filter-container">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="Burgers">Burgers</button>
-                <button class="filter-btn" data-category="Pizza">Pizza</button>
-                <button class="filter-btn" data-category="Desserts">Desserts</button>
-                <button class="filter-btn" data-category="Drinks">Drinks</button>
+                <button id="filter-all" data-category="all" aria-pressed="true" style="padding: 10px 24px; margin: 0 4px; border: none; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; cursor: pointer; transition: background 0.3s;">All</button>
+                <button id="filter-House" data-category="House" aria-pressed="false" style="padding: 10px 24px; margin: 0 4px; border: none; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; cursor: pointer; transition: background 0.3s;">House</button>
+                <button id="filter-Educational Places" data-category="Educational Places" aria-pressed="false" style="padding: 10px 24px; margin: 0 4px; border: none; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; cursor: pointer; transition: background 0.3s;">Educational Places</button>
+                <button id="filter-Work & Business" data-category="Work & Business" aria-pressed="false" style="padding: 10px 24px; margin: 0 4px; border: none; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; cursor: pointer; transition: background 0.3s;">Work & Business</button>
+                <button id="filter-Public & Service Places" data-category="Public & Service Places" aria-pressed="false" style="padding: 10px 24px; margin: 0 4px; border: none; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; cursor: pointer; transition: background 0.3s;">Public & Service Places</button>
+                <button id="filter-Hospitality" data-category="Hospitality" aria-pressed="false" style="padding: 10px 24px; margin: 0 4px; border: none; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; cursor: pointer; transition: background 0.3s;">Hospitality</button>
+                 <button id="filter-Other Places" data-category="Other Places" aria-pressed="false" style="padding: 10px 24px; margin: 0 4px; border: none; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; cursor: pointer; transition: background 0.3s;">Other Places</button>
             </div>
 
-            <!-- Menu Grid -->
+            <!-- Menu Grid -->Places
             <div id="menu-grid" class="menu-grid">
                 <!-- Food items will be injected here by JavaScript -->
             </div>
@@ -157,7 +158,7 @@
                 <span>Total:</span>
                 <span id="cart-total">Rs 0</span>
             </div>
-            <button id="order-btn" class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+            <button id="order-action" onclick="placeOrder()" style="padding: 12px 32px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;">Place Order</button>
         </div>
     </div>
 
@@ -224,7 +225,7 @@
                 <div class="form-group">
                     <input type="password" id="login-password" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" style="padding: 12px 32px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-login-modal">Login</button>
                 <div class="form-footer">
                     <p>Don't have an account? <a href="#" onclick="openModal('register-modal')">Register</a></p>
                 </div>
@@ -250,7 +251,7 @@
                 <div class="form-group">
                     <input type="password" id="register-confirm" placeholder="Confirm Password" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" style="padding: 12px 32px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-register-modal">Register</button>
                 <div class="form-footer">
                     <p>Already have an account? <a href="#" onclick="openModal('login-modal')">Login</a></p>
                 </div>

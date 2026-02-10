@@ -51,43 +51,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Enhanced Button Hover Effects
 document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.btn');
-    
+    const buttons = document.querySelectorAll('.action');
     buttons.forEach(button => {
         button.addEventListener('mouseenter', function() {
             // Add subtle glow effect
-            this.style.boxShadow = this.classList.contains('btn-primary') 
+            this.style.boxShadow = this.classList.contains('action-primary') 
                 ? '0 10px 25px rgba(212, 175, 55, 0.4)' 
                 : '0 8px 20px rgba(0, 0, 0, 0.15)';
         });
-        
         button.addEventListener('mouseleave', function() {
             // Reset shadow
-            this.style.boxShadow = this.classList.contains('btn-primary') 
+            this.style.boxShadow = this.classList.contains('action-primary') 
                 ? '0 10px 15px rgba(0, 0, 0, 0.1)' 
                 : '0 4px 6px rgba(0, 0, 0, 0.1)';
         });
-        
         button.addEventListener('mousedown', function() {
             // Press effect
             this.style.transform = 'translateY(1px)';
         });
-        
         button.addEventListener('mouseup', function() {
             // Release effect
-            if (this.classList.contains('btn-primary')) {
-                this.style.transform = 'translateY(-3px)';
-            } else {
-                this.style.transform = 'translateY(-3px)';
-            }
+            this.style.transform = 'translateY(-3px)';
         });
     });
-    
     // Add loading animation for the hero section
     const heroContent = document.querySelector('.hero-content');
     const heroVisual = document.querySelector('.hero-visual');
-    
-    // Trigger reflow to restart animations
     setTimeout(() => {
         heroContent.style.opacity = '1';
         heroVisual.style.opacity = '1';
@@ -98,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
         const activeElement = document.activeElement;
-        if (activeElement.classList.contains('btn')) {
+        if (activeElement.classList.contains('action')) {
             activeElement.click();
         }
     }
@@ -106,7 +95,16 @@ document.addEventListener('keydown', function(e) {
 
 // Menu Filtering
 document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // Custom filter buttons (no Bootstrap classes)
+    const filterButtons = [
+        document.getElementById('filter-all'),
+        document.getElementById('filter-House'),
+        document.getElementById('filter-Educational Places'),
+        document.getElementById('filter-Work & Business'),
+        document.getElementById('filter-Public & Service Places'),
+        document.getElementById('filter-Hospitality'),
+        document.getElementById('filter-Other Places')
+    ];
     const menuGrid = document.getElementById('menu-grid');
     
     // Load initial menu
@@ -120,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 1,
                 name: "Classic Burger",
                 price: 1200,
-                category: "Burgers",
+                category: "House",
                 image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&auto=format&fit=crop&q=60",
                 description: "Juicy beef patty with fresh lettuce, tomato, and special sauce"
             },
@@ -128,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 2,
                 name: "Cheese Pizza",
                 price: 1800,
-                category: "Pizza",
+                category: "Educational Places",
                 image: "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=500&auto=format&fit=crop&q=60",
                 description: "Classic Margherita with mozzarella cheese and fresh basil"
             },
@@ -136,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 3,
                 name: "Veggie Burger",
                 price: 1000,
-                category: "Burgers",
+                category: "House",
                 image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60",
                 description: "Plant-based patty with avocado, cucumber, and vegan mayo"
             },
@@ -144,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 4,
                 name: "Pepperoni Pizza",
                 price: 2000,
-                category: "Pizza",
+                category: "Educational Places",
                 image: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=500&auto=format&fit=crop&q=60",
                 description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
             },
@@ -152,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 5,
                 name: "Margherita Pizza",
                 price: 1600,
-                category: "Pizza",
+                category: "OEducational Placese",
                 image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60",
                 description: "Fresh mozzarella, tomatoes, and basil on thin crust"
             },
@@ -160,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 id: 6,
                 name: "Double Cheeseburger",
                 price: 1500,
-                category: "Burgers",
+                category: "House",
                 image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&auto=format&fit=crop&q=60",
                 description: "Double beef patties with extra cheese and crispy bacon"
             }
@@ -170,15 +168,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Filter functionality
     filterButtons.forEach(button => {
+        if (!button) return;
         button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
+            // Remove active style from all buttons
+            filterButtons.forEach(btn => {
+                if (!btn) return;
+                btn.style.background = '#F5F5F5';
+                btn.style.color = '#1E1E1E';
+                btn.setAttribute('aria-pressed', 'false');
+            });
+            // Add active style to clicked button
+            this.style.background = 'linear-gradient(135deg, #D4AF37, #FFD700)';
+            this.style.color = '#1E1E1E';
+            this.setAttribute('aria-pressed', 'true');
             const category = this.getAttribute('data-category');
-            
             if (category === 'all') {
                 displayMenu(foodData || []);
             } else {
@@ -215,7 +218,7 @@ function displayMenu(items) {
                 <p class="food-card-description">${item.description}</p>
                 <div class="food-card-footer">
                     <span class="food-price">Rs ${item.price}</span>
-                    <button class="add-to-cart-btn" onclick="addToCart(${item.id})">Add to Cart</button>
+                    <button class="action action-primary add-to-cart-action" onclick="addToCart(${item.id})">Add to Cart</button>
                 </div>
             </div>
         `;
@@ -291,7 +294,6 @@ function displayCartItems() {
     cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
-        
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
@@ -302,11 +304,11 @@ function displayCartItems() {
             </div>
             <div class="cart-item-actions">
                 <div class="quantity-controls">
-                    <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                    <button class="quantity-action" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
                     <span class="quantity-display">${item.quantity}</span>
-                    <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                    <button class="quantity-action" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
                 </div>
-                <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+                <button class="remove-action" onclick="removeFromCart(${item.id})">Remove</button>
             </div>
         `;
         cartItemsContainer.appendChild(cartItem);

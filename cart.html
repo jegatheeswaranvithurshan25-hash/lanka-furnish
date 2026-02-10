@@ -69,8 +69,8 @@
                             <span>Total</span>
                             <span id="cart-total">Rs 0</span>
                         </div>
-                        <button id="order-btn" class="btn btn-primary btn-large" onclick="placeOrder()">Place Order</button>
-                        <button class="btn btn-secondary" onclick="clearCart()">Clear Cart</button>
+                        <button id="order-action" class="action action-primary action-large" onclick="placeOrder()">Place Order</button>
+                        <button class="action action-secondary" onclick="clearCart()">Clear Cart</button>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                 <span>Total:</span>
                 <span id="cart-total-sidebar">Rs 0</span>
             </div>
-            <button id="order-btn-sidebar" class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+            <button id="order-action-sidebar" class="action action-primary" onclick="placeOrder()">Place Order</button>
         </div>
     </div>
 
@@ -198,11 +198,11 @@
                         </div>
                         <div class="cart-item-actions">
                             <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                                <button class="quantity-action" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
                                 <span class="quantity-display">${item.quantity}</span>
-                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                                <button class="quantity-action" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
                             </div>
-                            <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+                            <button class="remove-action" onclick="removeFromCart(${item.id})">Remove</button>
                         </div>
                     `;
                     cartItemsSidebar.appendChild(cartItem);
