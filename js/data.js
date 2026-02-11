@@ -3,7 +3,7 @@ const foodData = [
     {
         id: 1,
         name: "Sofa set",
-        price: 1200,
+        price: 119,000,
         category: "House",
         image: "https://img500.exportersindia.com/product_images/bc-500/2024/12/8262385/sofa-set-1733230176-7717419.jpeg",
         description: "Stylish wooden sofa set with beige cushions and a matching center table."
