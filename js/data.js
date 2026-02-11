@@ -99,7 +99,7 @@ const FurnitureData = [
     {
         id: 13,
         name: "Wheel Chair",
-        price: 300,
+        price:  30000,
         category: "Hospitality",
         image: "https://residentessentials.com/cdn/shop/products/wheelchair-_lightweight_800x.jpg?v=1517340658",
         description: "Foldable manual wheelchair: black padded seat, large rear wheels, front casters, adjustable arm/footrests. For hospital or home use."
@@ -107,7 +107,7 @@ const FurnitureData = [
     {
         id: 14,
         name: "IV stands",
-        price: 300,
+        price: 17000,
         category: "Hospitality",
         image: "https://d2t0svjwo1hj60.cloudfront.net/media/public/25248a4ccef945feb_Janani_IV_Stand_3_Leg_MS_PC.png",
         description: "Stainless steel IV pole with 5-leg base, 4-hook top, adjustable height and locking wheels. Ideal for hospitals and clinics."
@@ -115,7 +115,7 @@ const FurnitureData = [
     {
         id: 15,
         name: "Reception desk",
-        price: 300,
+        price: 143000,
         category: "Hospitality",
         image: "https://www.officestock.com.au/assets/full/OMRCP-EXECUTIVE-LHS-TEAK.jpg?20210309030558",
         description: "Modern curved reception counter: glossy white top, grey panels, chrome accents. Perfect for hotels, offices or clinics."
