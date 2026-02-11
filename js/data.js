@@ -4,6 +4,7 @@ const foodData = [
         id: 1,
         name: "Sofa set",
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -22,6 +23,9 @@ const foodData = [
 >>>>>>> 124d5590313d806f2f29c48f5b77ba9bac61fa91
 =======
 >>>>>>> Stashed changes
+=======
+        price: 1200,
+>>>>>>> parent of 4bfba52 (Merge branch 'main' of https://github.com/jegatheeswaranvithurshan25-hash/lanka-furnish)
         category: "House",
         image: "https://img500.exportersindia.com/product_images/bc-500/2024/12/8262385/sofa-set-1733230176-7717419.jpeg",
         description: "Juicy beef patty with fresh lettuce, tomato, and special sauce"
