@@ -4,7 +4,10 @@ const foodData = [
         id: 1,
         name: "Sofa set",
 <<<<<<< HEAD
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 <<<<<<< Updated upstream
         price: 119,000,
 =======
@@ -13,9 +16,12 @@ const foodData = [
 =======
         price: 1200,
 >>>>>>> 124d5590313d806f2f29c48f5b77ba9bac61fa91
+<<<<<<< Updated upstream
 =======
         price: 1200,
 >>>>>>> 124d5590313d806f2f29c48f5b77ba9bac61fa91
+=======
+>>>>>>> Stashed changes
         category: "House",
         image: "https://img500.exportersindia.com/product_images/bc-500/2024/12/8262385/sofa-set-1733230176-7717419.jpeg",
         description: "Juicy beef patty with fresh lettuce, tomato, and special sauce"
