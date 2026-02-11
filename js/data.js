@@ -62,7 +62,7 @@ const foodData = [
         price: 800,
         category: "Work & Business",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKJPFnxom9n7uFcWZ6b44xqEaSwtX9_PROig&s",
-        description: "Portable projector screen stand suitable for presentations, classes, and office use with a stable tripod base."
+        description: "Portable projector screen stan suitable for presentations, classes, and office use with a stable tripod base."
     },
     {
         id: 9,
