@@ -4,11 +4,15 @@ const foodData = [
         id: 1,
         name: "Sofa set",
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         price: 119,000,
 =======
         price: "LKR 119,000",
 >>>>>>> Stashed changes
+=======
+        price: 1200,
+>>>>>>> 124d5590313d806f2f29c48f5b77ba9bac61fa91
 =======
         price: 1200,
 >>>>>>> 124d5590313d806f2f29c48f5b77ba9bac61fa91
