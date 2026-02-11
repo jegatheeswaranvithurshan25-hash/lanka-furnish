@@ -6,7 +6,7 @@ const foodData = [
         price: 1200,
         category: "House",
         image: "https://img500.exportersindia.com/product_images/bc-500/2024/12/8262385/sofa-set-1733230176-7717419.jpeg",
-        description: "Juicy beef patty with fresh lettuce, tomato, and special sauce"
+        description: "Stylish wooden sofa set with beige cushions and a matching center table."
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ const foodData = [
         price: 1800,
         category: "Educational Places",
         image: "https://sc04.alicdn.com/kf/Hd7c3a795ce804b108637ce7f18a8d7ebg.jpg",
-        description: "Classic Margherita with mozzarella cheese and fresh basil"
+        description: "Wooden reading table set with matching chairs, perfect for classrooms and study areas."
     },
     {
         id: 3,
@@ -38,7 +38,7 @@ const foodData = [
         price: 1600,
         category: "Educational Places",
         image: "https://www.bfx.com.au/store/media/catalog/product/cache/15a30199908046cf6adee7ab34ad1731/c/o/commercial_dm_reception_corner_desk_back_-_rawbirch.jpg",
-        description: "Fresh mozzarella, tomatoes, and basil on thin crust"
+        description: "Spacious L-shaped reception desk with wide workspace, storage shelves, and a modern wooden finish."
     },
     {
         id: 6,
@@ -46,7 +46,7 @@ const foodData = [
         price: 1500,
         category: "House",
         image: "https://m.media-amazon.com/images/I/81MfZ0cts1L._AC_UF894,1000_QL80_.jpg",
-        description: "Double beef patties with extra cheese and crispy bacon"
+        description: "Soft cushioned recliner chair with adjustable footrest, perfect for relaxing, reading, or watching TV in comfort."
     },
     {
         id: 7,
