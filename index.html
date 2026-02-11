@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Bites - Premium Food Delivery</title>
+    <title>Lanka Furnish - Premium Furniture Delivery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1>Lanka Furnish</h1>
+                <h1>Lanka Furnish<img src="logo.png"></h1>
             </div>
             <nav class="nav">
                 <ul>
@@ -28,12 +28,20 @@
                 <a href="login.html" style="padding: 10px 28px; margin-right: 8px; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s;" id="action-login">Login</a>
                 <a href="register.html" style="padding: 10px 28px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s;" id="action-signup">Sign Up</a>
             </div>
-            <div class="theme-toggle" onclick="toggleTheme()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-icon">
-                    <path id="sun-icon" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path id="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"/>
-                </svg>
-            </div>
+            <form class="search-bar" onsubmit="event.preventDefault(); /* Add search logic here */" style="display: flex; align-items: center; margin-left: 16px;">
+                                <input type="text" placeholder="Search..." aria-label="Search" style="padding: 7px 16px; border-radius: 16px; border: 1px solid #D4AF37; outline: none; font-size: 1rem;" />
+                                <button type="submit" style="padding: 7px 18px; border-radius: 16px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; margin-left: 6px; cursor: pointer;">Search</button>
+                                <script>
+                                    // Attach search logic directly for inline fallback (for non-JS users, the main logic is in script.js)
+                                    document.querySelector('.search-bar').onsubmit = function(event) {
+                                        if (typeof handleSearchBar === 'function') {
+                                            handleSearchBar(event);
+                                        } else {
+                                            event.preventDefault();
+                                        }
+                                    };
+                                </script>
+            </form>
             <div class="cart-icon" onclick="toggleCart()">
                 <span class="cart-count">0</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -76,8 +84,8 @@
             
             <!-- Right Column: Visual -->
             <div class="hero-visual">
-                <div class="food-image-container">
-                    <img src="https://www.furnitalia.com/wp-content/uploads/2023/05/Natuzzi-Italia-sectional-and-chair-living-room-set.jpg" alt="Premium food presentation" class="food-image">
+                <div class="furniture-image-container">
+                    <img src="https://www.furnitalia.com/wp-content/uploads/2023/05/Natuzzi-Italia-sectional-and-chair-living-room-set.jpg" alt="Premium furniture presentation" class="furniture-image">
                          
                 </div>
                 
@@ -110,7 +118,7 @@
 
             <!-- Menu Grid -->Places
             <div id="menu-grid" class="menu-grid">
-                <!-- Food items will be injected here by JavaScript -->
+                <!-- furniture items will be injected here by JavaScript -->
             </div>
         </div>
     </section>
@@ -120,25 +128,26 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>About Golden Bites</h2>
-                    <p>We're passionate about delivering the best food experience to your doorstep. Our chefs use only the freshest ingredients to create delicious meals that will satisfy your cravings.</p>
+                    <h2>About Lanka Furnish</h2>
+                    <p>At Lanka Furnish, we’re dedicated to bringing high-quality furniture straight to your doorstep. Our skilled designers and craftsmen use only premium materials to create stylish, durable, and functional pieces that enhance every living space. From modern designs to timeless classics, we focus on comfort, quality, and customer satisfaction.</p>
                     <div class="features">
                         <div class="feature">
-                            <h3>Quality</h3>
-                            <p>Fresh ingredients, carefully selected</p>
+                            <h3>🪵 Quality</h3>
+                            <p>Premium materials, carefully crafted</p>
                         </div>
                         <div class="feature">
-                            <h3>Speed</h3>
-                            <p>Fast delivery, hot and fresh</p>
+                            <h3>🚚 Speed</h3>
+                            <p>Fast delivery & safe installation</p>
                         </div>
                         <div class="feature">
-                            <h3>Taste</h3>
-                            <p>Amazing flavors in every bite</p>
+                            <h3>🛋️ Comfort & Style</h3>
+                            <p>Beautiful designs made for daily living</p>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="kitchen-image"></div>
+                    <div class="furniture-image"></div>
+                    <img src="data:image/jpeg;base64,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" alt="Premium furniture presentation" class="furniture-image">
                 </div>
             </div>
         </div>
@@ -170,8 +179,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Golden Bites</h3>
-                    <p>Delicious food delivered fast to your door. Quality ingredients, amazing flavors, and excellent service.</p>
+                    <h3>Lanka Furnish</h3>
+                    <p>Delivering quality furniture to your doorstep. Crafted with premium materials, expert workmanship, and stylish designs — perfect for every home.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon">📱</a>
                         <a href="#" class="social-icon">📘</a>
@@ -191,24 +200,25 @@
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Delivery</a></li>
-                        <li><a href="#">Takeaway</a></li>
-                        <li><a href="#">Catering</a></li>
-                        <li><a href="#">Corporate Orders</a></li>
+                        <li><a href="#">🚚 Delivery</a></li>
+                        <li><a href="#">🛠️ Installation</a></li>
+                        <li><a href="#">🪑 Custom Furniture</a></li>
+                        <li><a href="#">🏢 Corporate Orders</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact Us</h4>
                     <div class="contact-info">
-                        <p>📍 123 Food Street, Colombo</p>
+                        <p>📍 123 Furniture Street, Colombo</p>
                         <p>📞 +94 112 345 678</p>
-                        <p>✉️ info@goldenbites.com</p>
-                        <p>⏰ Mon-Sun: 10AM - 10PM</p>
+                        <p>✉️ info@lankafurnish.com</p>
+                        <p>⏰ Mon-Sat: 9AM - 10PM</p>
+                        <p>⏰ Sun: 9AM - 1PM</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Golden Bites. All rights reserved.</p>
+                <p>&copy; 2026 Lanka Furnish. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -9,43 +9,29 @@ function scrollToMenu() {
     }
 }
 
-// Dark Mode Toggle Functionality
-function toggleTheme() {
-    const body = document.body;
-    const themeToggle = document.querySelector('.theme-toggle');
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    
-    body.classList.toggle('dark-theme');
-    
-    if (body.classList.contains('dark-theme')) {
-        // Dark theme active
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        // Light theme active
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-        localStorage.setItem('theme', 'light');
+// Search Bar Functionality
+function handleSearchBar(event) {
+    event.preventDefault();
+    const searchInput = document.querySelector('.search-bar input');
+    const query = searchInput.value.trim().toLowerCase();
+    if (typeof FurnitureData !== 'undefined' && Array.isArray(FurnitureData)) {
+        const filtered = FurnitureData.filter(item =>
+            item.name.toLowerCase().includes(query) ||
+            (item.description && item.description.toLowerCase().includes(query)) ||
+            (item.category && item.category.toLowerCase().includes(query))
+        );
+        displayMenu(filtered);
     }
 }
 
-// Initialize theme on page load
+// Filter menu items based on search query
+// No longer needed: filterMenuItems, as search now uses displayMenu directly
+
+// Attach search handler on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('theme');
-    const body = document.body;
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-theme');
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-    } else {
-        body.classList.remove('dark-theme');
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
+    const searchForm = document.querySelector('.search-bar');
+    if (searchForm) {
+        searchForm.addEventListener('submit', handleSearchBar);
     }
 });
 
@@ -108,56 +94,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuGrid = document.getElementById('menu-grid');
     
     // Load initial menu
-    if (typeof foodData !== 'undefined' && foodData.length > 0) {
-        displayMenu(foodData);
+    if (typeof FurnitureData !== 'undefined' && FurnitureData.length > 0) {
+        displayMenu(FurnitureData);
     } else {
-        console.error('foodData is not defined or empty');
+        console.error('FurnitureData is not defined or empty');
         // Fallback: create some sample data
         const sampleData = [
             {
                 id: 1,
-                name: "Classic Burger",
-                price: 1200,
+                name: "Sofa set",
+                price: 119000,
                 category: "House",
                 image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&auto=format&fit=crop&q=60",
-                description: "Juicy beef patty with fresh lettuce, tomato, and special sauce"
+                description: "Comfortable wooden sofa set with soft cushions, perfect for living rooms and lounge areas."
             },
             {
                 id: 2,
-                name: "Cheese Pizza",
-                price: 1800,
+                name: "Reading tables & chairs",
+                price: 126000,
                 category: "Educational Places",
                 image: "https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=500&auto=format&fit=crop&q=60",
-                description: "Classic Margherita with mozzarella cheese and fresh basil"
+                description: "Spacious reading tables with kid-friendly chairs, ideal for libraries, classrooms, and study spaces."
             },
             {
                 id: 3,
-                name: "Veggie Burger",
-                price: 1000,
+                name: "Armchair",
+                price: 125400,
                 category: "House",
                 image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&auto=format&fit=crop&q=60",
-                description: "Plant-based patty with avocado, cucumber, and vegan mayo"
+                description: "Elegant single armchair with floral upholstery, offering cozy seating for living rooms and reading corners."
             },
             {
                 id: 4,
-                name: "Pepperoni Pizza",
-                price: 2000,
+                name: "Study cubicles",
+                price: 24500,
                 category: "Educational Places",
                 image: "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=500&auto=format&fit=crop&q=60",
-                description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+                description: "Compact study cubicles with comfortable seating and private workspace for focused learning."
             },
             {
                 id: 5,
-                name: "Margherita Pizza",
-                price: 1600,
-                category: "OEducational Placese",
+                name: "Reception desk",
+                price: 89475,
+                category: "Educational Places",
                 image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60",
-                description: "Fresh mozzarella, tomatoes, and basil on thin crust"
+                description: "Modern L-shaped reception desk with spacious storage shelves and a wide work surface for office use."
             },
             {
                 id: 6,
-                name: "Double Cheeseburger",
-                price: 1500,
+                name: "Recliner",
+                price: 80000,
                 category: "House",
                 image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&auto=format&fit=crop&q=60",
                 description: "Double beef patties with extra cheese and crispy bacon"
@@ -183,9 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
             this.setAttribute('aria-pressed', 'true');
             const category = this.getAttribute('data-category');
             if (category === 'all') {
-                displayMenu(foodData || []);
+                displayMenu(FurnitureData || []);
             } else {
-                const filteredItems = (foodData || []).filter(item => item.category === category);
+                const filteredItems = (FurnitureData || []).filter(item => item.category === category);
                 displayMenu(filteredItems);
             }
         });
@@ -209,15 +195,15 @@ function displayMenu(items) {
     
     items.forEach(item => {
         const foodCard = document.createElement('div');
-        foodCard.className = 'food-card';
+        foodCard.className = 'furniture-card';
         foodCard.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" class="food-card-image">
-            <div class="food-card-content">
-                <h3 class="food-card-title">${item.name}</h3>
-                <span class="food-card-category">${item.category}</span>
-                <p class="food-card-description">${item.description}</p>
-                <div class="food-card-footer">
-                    <span class="food-price">Rs ${item.price}</span>
+            <img src="${item.image}" alt="${item.name}" class="furniture-card-image">
+            <div class="furniture-card-content">
+                <h3 class="furniture-card-title">${item.name}</h3>
+                <span class="furniture-card-category">${item.category}</span>
+                <p class="furniture-card-description">${item.description}</p>
+                <div class="furniture-card-footer">
+                    <span class="furniture-price">Rs ${item.price}</span>
                     <button class="action action-primary add-to-cart-action" onclick="addToCart(${item.id})">Add to Cart</button>
                 </div>
             </div>
@@ -238,7 +224,7 @@ function updateCartCount() {
 }
 
 function addToCart(itemId) {
-    const item = foodData.find(food => food.id === itemId);
+    const item = FurnitureData.find(furniture => furniture.id === itemId);
     if (!item) return;
     
     const existingItem = cart.find(cartItem => cartItem.id === itemId);
