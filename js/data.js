@@ -98,27 +98,27 @@ const FurnitureData = [
     },
     {
         id: 13,
-        name: "Coca Cola",
+        name: "Wheel Chair",
         price: 300,
         category: "Hospitality",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUEn8hZ0dGU6nOUYYCAIR-h8wiIXhD-1EBw&s",
-        description: "Classic cola drink, 350ml"
+        image: "https://residentessentials.com/cdn/shop/products/wheelchair-_lightweight_800x.jpg?v=1517340658",
+        description: "Foldable manual wheelchair: black padded seat, large rear wheels, front casters, adjustable arm/footrests. For hospital or home use."
     },
     {
         id: 14,
-        name: "Coca Cola",
+        name: "IV stands",
         price: 300,
         category: "Hospitality",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUEn8hZ0dGU6nOUYYCAIR-h8wiIXhD-1EBw&s",
-        description: "Classic cola drink, 350ml"
+        image: "https://d2t0svjwo1hj60.cloudfront.net/media/public/25248a4ccef945feb_Janani_IV_Stand_3_Leg_MS_PC.png",
+        description: "Stainless steel IV pole with 5-leg base, 4-hook top, adjustable height and locking wheels. Ideal for hospitals and clinics."
     },
     {
         id: 15,
-        name: "Coca Cola",
+        name: "Reception desk",
         price: 300,
         category: "Hospitality",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUEn8hZ0dGU6nOUYYCAIR-h8wiIXhD-1EBw&s",
-        description: "Classic cola drink, 350ml"
+        image: "https://www.officestock.com.au/assets/full/OMRCP-EXECUTIVE-LHS-TEAK.jpg?20210309030558",
+        description: "Modern curved reception counter: glossy white top, grey panels, chrome accents. Perfect for hotels, offices or clinics."
     },{
         id: 16,
         name: "Folding chair",
@@ -292,7 +292,7 @@ const FurnitureData = [
         price: 10000,
         category: "House",
         image: "https://img.drz.lazcdn.com/static/lk/p/95ad5ea516467423cd168fe335c262d4.jpg_720x720q80.jpg",
-        description: "Double beef patties with extra cheese and crispy bacon"
+        description: "Modern dark wood geometric cube shelving unit for wall mounting. Ideal for home decor, books, or plants."
     },
     {
         id: 38,
@@ -300,7 +300,7 @@ const FurnitureData = [
         price: 18500,
         category: "Educational Places",
         image: "https://image.made-in-china.com/202f0j00zFdakBSJwPpn/New-Design-School-Desk-Teacher-Table-with-Wire-Hole.jpg",
-        description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+        description: "Sturdy wooden desk with 3 drawers, light wood top, suitable for classrooms or tuition centers."
     },
     {
         id: 39,
@@ -308,7 +308,7 @@ const FurnitureData = [
         price: 11500,
         category: "Educational Places",
         image: "https://aceofficesystems.com/cdn/shop/products/ACB3648-3.jpg?v=1764695886&width=452",
-        description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+        description: "Mobile metal stand with wheels, height-adjustable, for holding large whiteboards or blackboards in classrooms/offices."
     },
     {
         id: 40,
@@ -316,7 +316,7 @@ const FurnitureData = [
         price: 15000,
         category: "Educational Places",
         image: "https://smartdesks.com/media/catalog/product/cache/4840f2e0b88cf97fb9d820f7d81b67f7/d/d/ddt-34_weelladsiixidiy4.jpg",
-        description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+        description: "Ergonomic computer workstation with keyboard tray, CPU holder, and wide top – perfect for school/computer lab setups."
     },
     {
         id: 41,
@@ -324,7 +324,7 @@ const FurnitureData = [
         price: 48500,
         category: "Educational Places",
         image: "https://m.media-amazon.com/images/I/51dwLELaU3L._AC_UF1000,1000_QL80_.jpg",
-        description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+        description: "TWooden standing podium with slanted top surface, open storage shelves, and built-in cable hole. Ideal for classrooms, lectures, or educational presentations."
     },
     {
         id: 42,
@@ -332,7 +332,7 @@ const FurnitureData = [
         price: 18000,
         category: "Other Places",
         image: "https://m.media-amazon.com/images/I/51H2e-CCHVL._AC_SL1500_.jpg",
-        description: "Crisp romaine lettuce with parmesan and croutons"
+        description: "Three-seater bench-style waiting chairs with black cushioned seats, metal frame, and armrests. Suitable for reception areas, offices, hospitals, or public spaces."
     },
     {
         id: 43,
@@ -340,7 +340,7 @@ const FurnitureData = [
         price: 38500,
         category: "Work & Business",
         image: "https://www.geekmaxi.com/img/p/2/0/7/2/8/20728-thickbox_default.webp",
-        description: "Crisp romaine lettuce with parmesan and croutons"
+        description: "Adjustable high-back office chair with mesh backrest, headrest, lumbar support, and armrests. Designed for comfortable long-hour work in offices or businesses."
     },
     {
         id: 44,
@@ -348,7 +348,7 @@ const FurnitureData = [
         price: 30500,
         category: "Public & Service Places",
         image: "https://m.media-amazon.com/images/I/71YrxZ6NCRL._AC_SL1000__.jpg",
-        description: "Classic cola drink, 350ml"
+        description: "Wooden reception or teller counter with drawers, shelves, storage cabinets, and approx. 92cm height. Perfect for banks, service counters, or public places."
     },
     {
         id: 45,
@@ -356,7 +356,7 @@ const FurnitureData = [
         price: 30000,
         category: "Public & Service Places",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqgY-G9EyN313aUmzPdLdZO37RzU5U0psaCw&s",
-        description: "Classic cola drink, 350ml"
+        description: "Modern clustered wooden office workstations with storage, cable management, and ergonomic mesh chairs. Perfect for open-plan offices or corporate setups."
     },
 
 ];
