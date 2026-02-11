@@ -75,7 +75,7 @@ const foodData = [
     {
         id: 10,
         name: "Doctor consultation desk",
-        price: 500,
+        price: 47000,
         category: "Public & Service Places",
         image: "https://cpimg.tistatic.com/04618938/b/4/Doctors-Consulting-Table.jpg",
         description: "Cold brew coffee with milk and ice"
@@ -83,7 +83,7 @@ const foodData = [
     {
         id: 11,
         name: "Lockers",
-        price: 900,
+        price:  44000,
         category: "Work & Business",
         image: "https://www.workspacedirect.co.nz/cdn/shop/files/Grid40ModularStorageUnitwithPlantersandLockers_Black_ClassicOak_WorkspaceDirectOfficeFurnitureNZ.webp?v=1687585278",
         description: "Crisp romaine lettuce with parmesan and croutons"
@@ -91,7 +91,7 @@ const foodData = [
     {
         id: 12,
         name: "Medical storage cabinets",
-        price: 300,
+        price: 65000,
         category: "Public & Service Places",
         image: "https://www.harloff.com/wp-content/uploads/2021/03/MSPM62-00GK-HT-GRAY-locked-medical-supply-cabinets-ql-closed.jpg",
         description: "Classic cola drink, 350ml"
@@ -122,7 +122,7 @@ const foodData = [
     },{
         id: 16,
         name: "Folding chair",
-        price: 900,
+        price: 6000,
         category: "Other Places",
         image: "https://m.media-amazon.com/images/I/619v7VYVcDL._AC_SL1500_.jpg",
         description: "Crisp romaine lettuce with parmesan and croutons"
@@ -130,7 +130,7 @@ const foodData = [
     {
         id: 17,
         name: "Folding Banquet table",
-        price: 900,
+        price: 110000,
         category: "Other Places",
         image: "https://s.alicdn.com/@sc04/kf/Hcf2b6fd7d0f24de184e81fd0e79ccfd0e.jpg_720x720q50.jpg",
         description: "Crisp romaine lettuce with parmesan and croutons"
@@ -138,7 +138,7 @@ const foodData = [
     {
         id: 18,
         name: "Serving table",
-        price: 900,
+        price: 130000,
         category: "Other Places",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhlpe2CDbAa4EVb8LFncdkZ5rn1ewxDCN3nw&s",
         description: "Crisp romaine lettuce with parmesan and croutons"
@@ -146,7 +146,7 @@ const foodData = [
     {
         id: 19,
         name: "Coffee table",
-        price: 1500,
+        price: 55000,
         category: "House",
         image: "https://www.fabhabitat.com.au/cdn/shop/files/Novawalnutovalcoffeetable1.jpg?v=1752156998&width=1080",
         description: "Double beef patties with extra cheese and crispy bacon"
@@ -154,7 +154,7 @@ const foodData = [
     {
         id: 20,
         name: "Side table",
-        price: 1500,
+        price: 6500,
         category: "House",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi261rObxuzdM3H05809rgvrMkW97AVy2lgQ&s",
         description: "Double beef patties with extra cheese and crispy bacon"
