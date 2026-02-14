@@ -1,5 +1,5 @@
-// Static food data for Golden Bites
-const foodData = [
+// Static furniture data for Golden Bites
+const FurnitureData = [
     {
         id: 1,
         name: "Sofa set",
@@ -19,9 +19,9 @@ const foodData = [
     {
         id: 3,
         name: "Armchair",
-        price: 126000,
+        price: 12000,
         category: "House",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTOEckWLadxP1U10bm7rMdl3m_P1E6AQO3Bw&s",
+        image: "https://malletandplane.com/cdn/shop/files/ARNYCHAIRCREAM.jpg?v=1736961479&width=2048",
         description: "Elegant single armchair with floral upholstery, offering cozy seating for living rooms and reading corners."
     },
     {
@@ -98,33 +98,33 @@ const foodData = [
     },
     {
         id: 13,
-        name: "Coca Cola",
+        name: "Wheel Chair",
         price: 300,
         category: "Hospitality",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUEn8hZ0dGU6nOUYYCAIR-h8wiIXhD-1EBw&s",
-        description: "Classic cola drink, 350ml"
+        image: "https://residentessentials.com/cdn/shop/products/wheelchair-_lightweight_800x.jpg?v=1517340658",
+        description: "Foldable manual wheelchair: black padded seat, large rear wheels, front casters, adjustable arm/footrests. For hospital or home use."
     },
     {
         id: 14,
-        name: "Coca Cola",
+        name: "IV stands",
         price: 300,
         category: "Hospitality",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUEn8hZ0dGU6nOUYYCAIR-h8wiIXhD-1EBw&s",
-        description: "Classic cola drink, 350ml"
+        image: "https://d2t0svjwo1hj60.cloudfront.net/media/public/25248a4ccef945feb_Janani_IV_Stand_3_Leg_MS_PC.png",
+        description: "Stainless steel IV pole with 5-leg base, 4-hook top, adjustable height and locking wheels. Ideal for hospitals and clinics."
     },
     {
         id: 15,
-        name: "Coca Cola",
+        name: "Reception desk",
         price: 300,
         category: "Hospitality",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtUEn8hZ0dGU6nOUYYCAIR-h8wiIXhD-1EBw&s",
-        description: "Classic cola drink, 350ml"
+        image: "https://www.officestock.com.au/assets/full/OMRCP-EXECUTIVE-LHS-TEAK.jpg?20210309030558",
+        description: "Modern curved reception counter: glossy white top, grey panels, chrome accents. Perfect for hotels, offices or clinics."
     },{
         id: 16,
         name: "Folding chair",
         price: 6000,
         category: "Other Places",
-        image: "https://m.media-amazon.com/images/I/619v7VYVcDL._AC_SL1500_.jpg",
+        image: "https://www.zimasya.com/cdn/shop/files/1_45079a19-c6b3-4d8b-8c58-8468b531d433.jpg?v=1737083397&width=530",
         description: "Portable folding chair with sturdy frame – ideal for events, banquets, parties & extra seating."
     },
     {
@@ -162,7 +162,7 @@ const foodData = [
     {
         id: 21,
         name: "Console table",
-        price: 1500,
+        price: 25000,
         category: "House",
         image: "https://i5.walmartimages.com/seo/Tribesigns-39-4-Console-Table-Modern-Entryway-Hallway-Table-with-Gold-Metal-Legs-Gold-Black_e2bdbed7-6ad5-4658-aaf4-9ad63e681ed4.585123fa7cffc910201e37d802d9dd23.jpeg",
         description: "Sleek marble-top console table with elegant twisted gold base – perfect for entryways or living rooms."
@@ -170,7 +170,7 @@ const foodData = [
     {
         id: 22,
         name: "TV stand",
-        price: 1500,
+        price: 35000,
         category: "House",
         image: "https://woodmaker.thealishan.com/wp-content/uploads/2021/12/Rustic-Modern-Solid-Wood-TV-Stand.jpg",
         description: "Rustic wooden TV unit with open shelves – ideal for media storage and entertainment setups."
@@ -178,7 +178,7 @@ const foodData = [
     {
         id: 23,
         name: "Bookshelf",
-        price: 1500,
+        price: 28000,
         category: "House",
         image: "https://ganpatiarts.com/cdn/shop/files/BOOK-SHELF-8.jpg?v=1757844872&width=1214",
         description: "Modern geometric wooden bookshelf with cube compartments – great for books, decor & display in any home."
@@ -186,7 +186,7 @@ const foodData = [
     {
         id: 24,
         name: "Display cabinet",
-        price: 1500,
+        price: 20000,
         category: "House",
         image: "https://ak1.ostkcdn.com/images/products/is/images/direct/be1b81cd250b5309937a6b737cca6a5d075e0408/Glass-Cabinet-Lighted-Corner-Cabinet-Corner-Display-Cabinet.jpg",
         description: "Elegant glass-door display cabinet with shelves – suited for showcasing collectibles, dishes or decor."
@@ -194,7 +194,7 @@ const foodData = [
     {
         id: 25,
         name: "Ottoman",
-        price: 1500,
+        price: 18000,
         category: "House",
         image: "https://www.estre.in/cdn/shop/files/1-min_95df619c-a7c5-487f-b820-c14947ebc629.jpg?v=1743763603",
         description: "Tufted leather ottoman with gold legs – perfect as extra seating or footrest in living rooms."
@@ -202,14 +202,14 @@ const foodData = [
     {
         id: 26,
         name: "Footstool",
-        price: 1500,
+        price: 12500,
         category: "House",
         image: "https://m.media-amazon.com/images/I/71QVGvrNLbL._AC_SL400_.jpg",
         description: "Adjustable wooden footstool with fabric top – ideal for relaxing on sofas or chairs."
     },{
         id: 27,
         name: "Bed",
-        price: 1500,
+        price: 80000,
         category: "House",
         image: "https://mywakeup.in/cdn/shop/files/1694173541.AKSSBED_main_0.png?v=1748581237&width=460",
         description: "Stylish wooden platform bed with headboard – great for modern bedrooms."
@@ -217,7 +217,7 @@ const foodData = [
     {
         id: 28,
         name: "Bedside table",
-        price: 1500,
+        price: 14500,
         category: "House",
         image: "https://lifely.com.au/cdn/shop/files/Untitleddesign_64_15fc00e9-39cf-42e0-b2df-0da2017a2148.png?v=1760349452",
         description: "Compact wooden nightstand with open shelf – suits bedrooms for lamps & storage."
@@ -225,7 +225,7 @@ const foodData = [
     {
         id: 29,
         name: "Wardrobe",
-        price: 1500,
+        price: 47500,
         category: "House",
         image: "https://modway.com/cdn/shop/files/MOD-7182-WAL_9.jpg?v=1733898142",
         description: "Spacious wooden wardrobe with sliding/slatted doors – perfect for organized clothing storage in bedrooms."
@@ -233,7 +233,7 @@ const foodData = [
     {
         id: 30,
         name: "Dressing table",
-        price: 1500,
+        price: 42975,
         category: "House",
         image: "https://cdn.decornation.in/wp-content/uploads/2021/02/dressing-table-designs-india.jpg",
         description: "Elegant wooden dressing table with mirror and drawers – ideal for makeup, grooming & bedroom vanity."
@@ -241,7 +241,7 @@ const foodData = [
     {
         id: 31,
         name: "Chest drawers",
-        price: 1500,
+        price: 57600,
         category: "House",
         image: "https://ii1.pepperfry.com/media/catalog/product/b/i/494x544/biscay-sheesham-wood-chest-of-drawers-in-scratch-resistant-provincial-teak-finish-biscay-sheesham-wo-gpedpi.jpg",
         description: "Classic wooden chest of drawers with multiple compartments – great for clothes, linens & bedroom storage."
@@ -249,7 +249,7 @@ const foodData = [
     {
         id: 32,
         name: "Dining table & chairs set",
-        price: 1500,
+        price: 115000,
         category: "House",
         image: "https://thetimberguy.com/cdn/shop/files/Solid-Sheesham-Wood-Designer-Dining-table-with-Cushioned-Chair-Bench-furniture-set-CHOOSE-YOUR-COMBINATION_1200x.png?v=1764235404",
         description: "Solid wooden dining set with carved details – suits family meals & gatherings in dining areas."
@@ -257,7 +257,7 @@ const foodData = [
     {
         id: 33,
         name: "Bar stools",
-        price: 1500,
+        price: 8000,
         category: "House",
         image: "https://www.woodsala.com/cdn/shop/files/1_2408cac8-75d5-4ac7-b546-60bd74def408.jpg?v=1730973524&width=2000",
         description: "Solid wooden bar stools with footrest – perfect for kitchen counters or home bars"
@@ -265,7 +265,7 @@ const foodData = [
     {
         id: 34,
         name: "Dining bench",
-        price: 1500,
+        price: 24750,
         category: "House",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPyQXTvX5LZTo4odq6J2Ck05YIBsiyGrQb5g&s",
         description: "Rustic wooden dining bench with sturdy metal legs – seats 2–3 comfortably"
@@ -273,7 +273,7 @@ const foodData = [
     {
         id: 35,
         name: "Study desk & chair",
-        price: 1500,
+        price: 25000,
         category: "House",
         image: "https://www.sarcrafts.com/wp-content/uploads/2022/04/P-1.jpg",
         description: "Compact solid wood study desk with drawers + matching chair (webbed seat)"
@@ -281,7 +281,7 @@ const foodData = [
     {
         id: 36,
         name: "Computer Chair",
-        price: 1500,
+        price: 28499,
         category: "House",
         image: "https://www.woods-furniture.co.uk/images/products/standard/9031_2671.jpg",
         description: "Ergonomic brown leatherette office chair with armrests and smooth base"
@@ -289,74 +289,74 @@ const foodData = [
     {
         id: 37,
         name: "Wall shelves",
-        price: 1500,
+        price: 10000,
         category: "House",
         image: "https://img.drz.lazcdn.com/static/lk/p/95ad5ea516467423cd168fe335c262d4.jpg_720x720q80.jpg",
-        description: "Double beef patties with extra cheese and crispy bacon"
+        description: "Modern dark wood geometric cube shelving unit for wall mounting. Ideal for home decor, books, or plants."
     },
     {
         id: 38,
         name: "Teacher table",
-        price: 2000,
+        price: 18500,
         category: "Educational Places",
         image: "https://image.made-in-china.com/202f0j00zFdakBSJwPpn/New-Design-School-Desk-Teacher-Table-with-Wire-Hole.jpg",
-        description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+        description: "Sturdy wooden desk with 3 drawers, light wood top, suitable for classrooms or tuition centers."
     },
     {
         id: 39,
         name: "Whiteboard / Blackboard stand",
-        price: 2000,
+        price: 11500,
         category: "Educational Places",
         image: "https://aceofficesystems.com/cdn/shop/products/ACB3648-3.jpg?v=1764695886&width=452",
-        description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+        description: "Mobile metal stand with wheels, height-adjustable, for holding large whiteboards or blackboards in classrooms/offices."
     },
     {
         id: 40,
         name: "Computer lab desks",
-        price: 2000,
+        price: 15000,
         category: "Educational Places",
         image: "https://smartdesks.com/media/catalog/product/cache/4840f2e0b88cf97fb9d820f7d81b67f7/d/d/ddt-34_weelladsiixidiy4.jpg",
-        description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+        description: "Ergonomic computer workstation with keyboard tray, CPU holder, and wide top – perfect for school/computer lab setups."
     },
     {
         id: 41,
         name: "Lecturer podium",
-        price: 2000,
+        price: 48500,
         category: "Educational Places",
         image: "https://m.media-amazon.com/images/I/51dwLELaU3L._AC_UF1000,1000_QL80_.jpg",
-        description: "Tomato sauce, mozzarella, and spicy pepperoni slices"
+        description: "TWooden standing podium with slanted top surface, open storage shelves, and built-in cable hole. Ideal for classrooms, lectures, or educational presentations."
     },
     {
         id: 42,
         name: "Waiting area chairs",
-        price: 900,
+        price: 18000,
         category: "Other Places",
         image: "https://m.media-amazon.com/images/I/51H2e-CCHVL._AC_SL1500_.jpg",
-        description: "Crisp romaine lettuce with parmesan and croutons"
+        description: "Three-seater bench-style waiting chairs with black cushioned seats, metal frame, and armrests. Suitable for reception areas, offices, hospitals, or public spaces."
     },
     {
         id: 43,
         name: "Ergonomic chair",
-        price: 900,
+        price: 38500,
         category: "Work & Business",
         image: "https://www.geekmaxi.com/img/p/2/0/7/2/8/20728-thickbox_default.webp",
-        description: "Crisp romaine lettuce with parmesan and croutons"
+        description: "Adjustable high-back office chair with mesh backrest, headrest, lumbar support, and armrests. Designed for comfortable long-hour work in offices or businesses."
     },
     {
         id: 44,
         name: "Teller counter Desk",
-        price: 300,
+        price: 30500,
         category: "Public & Service Places",
         image: "https://m.media-amazon.com/images/I/71YrxZ6NCRL._AC_SL1000__.jpg",
-        description: "Classic cola drink, 350ml"
+        description: "Wooden reception or teller counter with drawers, shelves, storage cabinets, and approx. 92cm height. Perfect for banks, service counters, or public places."
     },
     {
         id: 45,
         name: "Office desks & chairs",
-        price: 300,
+        price: 30000,
         category: "Public & Service Places",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqgY-G9EyN313aUmzPdLdZO37RzU5U0psaCw&s",
-        description: "Classic cola drink, 350ml"
+        description: "Modern clustered wooden office workstations with storage, cable management, and ergonomic mesh chairs. Perfect for open-plan offices or corporate setups."
     },
 
 ];
@@ -379,7 +379,7 @@ function loadCart() {
 
 // Add item to cart
 function addToCart(itemId) {
-    const item = foodData.find(food => food.id === itemId);
+    const item = FurnitureData.find(furniture => furniture.id === itemId);
     if (item) {
         const existingItem = cart.find(cartItem => cartItem.id === itemId);
         if (existingItem) {
