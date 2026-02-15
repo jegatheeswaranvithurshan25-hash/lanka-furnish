@@ -1,14 +1,14 @@
 /* CSS Variables - Premium Minimal Design */
 :root {
     /* Color Palette */
-    --background-color: #FFFFFF;
-    --primary-color: #171817; /* Golden */
+    --background-color: #92dbc14f;
+    --primary-color: #171817; /* Lanka */
     --primary-hover: #b82a6f;
     --text-color: #090909;
     --muted-text: #666666;
-    --accent-color: #F5F5F5;
-    --card-background: #FFFFFF;
-    --border-color: #F5F5F5;
+    --accent-color: #92dbc14f;
+    --card-background: #ffffff;
+    --border-color: #e5d36c;
     
     /* Typography */
     --font-heading: 'Poppins', sans-serif;
@@ -233,13 +233,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fadeInRight 1s ease-out;
+    animation: fadeInRight 0.5s ease-out;
 }
 
 .furniture-image-container {
     position: relative;
-    width: 100%;
-    max-width: 500px;
+    width: 120%;
+    height: 120%;
+    max-width: 1000px;
+    max-height: 1000px;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-heavy);
@@ -331,13 +333,13 @@ body {
 
 /* Menu Section */
 .menu {
-    padding: 100px 0;
+    padding: 80px 0;
     background-color: var(--background-color);
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 
 .section-header h2 {
@@ -352,10 +354,10 @@ body {
 .section-header h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -2px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 120px;
     height: 3px;
     background-color: var(--primary-color);
 }
@@ -368,8 +370,8 @@ body {
 .filter-container {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
+    gap: 30px;
+    margin-bottom: 3px;
     flex-wrap: wrap;
 }
 
@@ -401,18 +403,18 @@ body {
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 15px;
 }
 
 .furniture-card {
     background-color: var(--card-background);
-    border-radius: 16px;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow-light);
     transition: var(--transition-speed) var(--transition-ease);
     animation: fadeInUp 0.6s ease-out;
-    border: 1px solid var(--border-color);
+    border: 0.5px solid var(--border-color);
 }
 
 .furniture-card:hover {
@@ -427,12 +429,17 @@ body {
     transition: var(--transition-speed) var(--transition-ease);
 }
 
+.furniture-card-image:hover {
+    transform: translateY(-18px);
+    box-shadow: var(--shadow-medium);
+}
+
 .furniture-card:hover .furniture-card-image {
     transform: scale(1.05);
 }
 
 .furniture-card-content {
-    padding: 20px;
+    padding: 15px;
 }
 
 .furniture-card-title {
@@ -447,26 +454,28 @@ body {
     display: inline-block;
     background-color: var(--accent-color);
     color: var(--primary-color);
-    padding: 4px 12px;
+    padding: 10px 15px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-family: var(--font-heading);
 }
 
 .furniture-card-description {
     color: var(--muted-text);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 14px;
     font-family: var(--font-body);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .furniture-card-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .furniture-price {
@@ -474,6 +483,7 @@ body {
     font-size: 24px;
     font-weight: 700;
     color: var(--primary-color);
+    text-align: justify;
 }
 
 .add-to-cart-action {
@@ -497,15 +507,17 @@ body {
 
 /* About Section */
 .about {
-    padding: 100px 0;
+    padding: 120px 0;
     background-color: var(--accent-color);
 }
 
 .about-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 60px;
+    gap: 50px;
     align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .about-text h2 {
@@ -532,7 +544,7 @@ body {
 .feature {
     background-color:#ebdcb9;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 20px;
     text-align: center;
     transition: var(--transition-speed) var(--transition-ease);
     border: 1px solid var(--accent-color);
@@ -566,13 +578,13 @@ body {
     background-image: url('https://www.google.com/imgres?q=interior%20design%20furniture%20website%20photo%20without%20words&imgurl=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F1257%2F0599%2Ffiles%2Fjapandi-interior-design-ideas_600x600.webp%3Fv%3D1740991052&imgrefurl=https%3A%2F%2Fwww.allcottonandlinen.com%2Fblogs%2Fnews%2Fjapandi-interior-design-living-room%3Fsrsltid%3DAfmBOoq87dm_r_2nqMjr-fHjVM1pI2OxwgkCrgLckjEbPDmsBOKh1j5h&docid=7zlDfbfcalFwyM&tbnid=EdObWdOT1wWPHM&vet=12ahUKEwiRqtaSrc6SAxWuT2wGHV0NJykQnPAOegQIHxAA..i&w=600&h=480&hcb=2&ved=2ahUKEwiRqtaSrc6SAxWuT2wGHV0NJykQnPAOegQIHxAA');
     background-size: cover;
     background-position: center;
-    border-radius: 16px;
+    border-radius: 60px;
     box-shadow: var(--shadow-heavy);
 }
 
 /* Cart Styles */
 .cart-section {
-    padding: 100px 0;
+    padding: 120px 0;
 }
 
 .cart-container {
@@ -806,8 +818,8 @@ body {
 .footer {
     background-color: var(--background-color);
     color: var(--text-color);
-    padding: 60px 0 20px;
-    margin-top: 40px;
+    padding: 100px 0 20px;
+    margin-top: 10px;
     border-top: 1px solid var(--accent-color);
 }
 
@@ -815,6 +827,8 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .footer-section h3 {
@@ -1030,14 +1044,14 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(201, 188, 103, 0.459);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(217, 216, 216, 0.1);
     transition: all var(--transition-speed) var(--transition-ease);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    border-radius: 0 0 20px 20px;
+    border-bottom: 10px solid rgba(0, 0, 0, 0.642);
+    border-radius: 0px 0px 25px 25px;
     margin: 0;
     padding: 0;
 }
@@ -1074,31 +1088,6 @@ body {
 .header:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 45px rgba(0, 0, 0, 0.15);
-}
-
-/* Dark theme header styles */
-.dark-theme .header {
-    background: rgba(30, 30, 30, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-}
-
-.dark-theme .header::before {
-    background: linear-gradient(180deg, rgba(255, 215, 0, 0.1), transparent);
-}
-
-.dark-theme .header.scrolled {
-    background: rgba(30, 30, 30, 0.95);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.dark-theme .header:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.4);
 }
 
 /* Auth Buttons */
@@ -1140,11 +1129,6 @@ body {
     box-shadow: var(--shadow-medium);
 }
 
-/* Dark theme header styles */
-.dark-theme .header {
-    background-color: rgba(30, 30, 30, 0.95);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-}
 
 .header.scrolled {
     background-color: var(--background-color);
@@ -1195,7 +1179,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: rgb(14, 50, 85);
     transition: var(--transition-speed) var(--transition-ease);
 }
 
@@ -1230,30 +1214,6 @@ body {
     font-size: 12px;
     font-weight: bold;
     font-family: var(--font-heading);
-}
-
-.theme-toggle {
-    position: relative;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    transition: var(--transition-speed) var(--transition-ease);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.theme-toggle:hover {
-    background-color: rgba(212, 175, 55, 0.1);
-}
-
-.theme-icon {
-    transition: var(--transition-speed) var(--transition-ease);
-    transform: rotate(0deg);
-}
-
-.theme-toggle:hover .theme-icon {
-    transform: rotate(180deg);
 }
 
 /* Animations */

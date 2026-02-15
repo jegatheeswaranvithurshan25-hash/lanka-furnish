@@ -1,4 +1,4 @@
-// Static furniture data for Golden Bites
+// Static furniture data for lanka furnish
 const FurnitureData = [
     {
         id: 1,
