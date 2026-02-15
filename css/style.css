@@ -191,7 +191,7 @@ body {
     left: 100%;
 }
 
-/* Primary Button - Golden */
+/* Primary Button - Lanka */
 .action-primary {
     background: linear-gradient(135deg, var(--primary-color), #FFD700);
     color: #1E1E1E;
@@ -508,7 +508,7 @@ body {
 /* About Section */
 .about {
     padding: 120px 0;
-    background-color: var(--accent-color);
+    background-color: lightblue;
 }
 
 .about-content {
@@ -636,7 +636,7 @@ body {
 }
 
 .cart-item-price {
-    color: var(--primary-color);
+    color: black;
     font-weight: 700;
     font-size: 18px;
     font-family: var(--font-heading);
@@ -679,7 +679,7 @@ body {
 
 .remove-action {
     background: none;
-    border: none;
+    border: #ff4757;
     color: #ff4757;
     cursor: pointer;
     font-size: 16px;
