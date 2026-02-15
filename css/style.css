@@ -1,16 +1,6 @@
 /* CSS Variables - Premium Minimal Design */
 :root {
     /* Color Palette */
-<<<<<<< Updated upstream
-    --background-color: #FFFFFF;
-    --primary-color: #171817; /* Golden */
-    --primary-hover: #b82a6f;
-    --text-color: #090909;
-    --muted-text: #666666;
-    --accent-color: #F5F5F5;
-    --card-background: #FFFFFF;
-    --border-color: #F5F5F5;
-=======
     --background-color: #92dbc14f;
     --primary-color: rgb(165, 42, 42); /* Lanka */
     --primary-hover: #b82a6f;
@@ -19,7 +9,7 @@
     --accent-color: rgb(184, 183, 183);
     --card-background: #ffffff;
     --border-color: #e5d36c;
->>>>>>> Stashed changes
+
     
     /* Typography */
     --font-heading: 'Poppins', sans-serif;
