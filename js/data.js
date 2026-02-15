@@ -106,7 +106,7 @@ const FurnitureData = [
     },
     {
         id: 14,
-        name: "IV stands",
+        name: "IV stand",
         price: 17000,
         category: "Hospitality",
         image: "https://www.medik-medical.com/data/watermark/20190528/5cecd8ce90a0b.jpg",
