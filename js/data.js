@@ -109,7 +109,7 @@ const FurnitureData = [
         name: "IV stands",
         price: 17000,
         category: "Hospitality",
-        image: "https://www.hospitallaboratory.com/uploaded-files/thumb-cache/member_80/thumb---hospital-iv-stand_4842.jpg",
+        image: "https://www.medik-medical.com/data/watermark/20190528/5cecd8ce90a0b.jpg",
         description: "Stainless steel IV pole with 5-leg base, 4-hook top, adjustable height and locking wheels. Ideal for hospitals and clinics."
     },
     {
