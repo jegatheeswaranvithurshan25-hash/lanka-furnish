@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lanka Furnish - Cart</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1>Golden Bites</h1>
+                <h1>Lanka Furnish</h1>
             </div>
             <nav class="nav">
                 <ul>
@@ -24,18 +27,19 @@
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
-            <div class="theme-toggle" onclick="toggleTheme()">
+            <!-- <div class="theme-toggle" onclick="toggleTheme()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-icon">
                     <path id="sun-icon" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path id="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"/>
                 </svg>
-            </div>
+            </div> -->
             <div class="cart-icon" onclick="toggleCart()">
                 <span class="cart-count">0</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 6h15l-1.5 9h-11l-2-8H6zm0 0L4 12h11" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="9" cy="20" r="1" fill="#D4AF37"/>
-                    <circle cx="17" cy="20" r="1" fill="#D4AF37"/>
+                    <path d="M6 6h15l-1.5 9h-11l-2-8H6zm0 0L4 12h11" stroke="#D4AF37" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="9" cy="20" r="1" fill="#D4AF37" />
+                    <circle cx="17" cy="20" r="1" fill="#D4AF37" />
                 </svg>
             </div>
         </div>
@@ -48,12 +52,12 @@
                 <h2>Your Cart</h2>
                 <p>Review your items and place your order</p>
             </div>
-            
+
             <div class="cart-container">
                 <div id="cart-items" class="cart-items">
                     <!-- Cart items will be injected here -->
                 </div>
-                
+
                 <div class="cart-summary">
                     <div class="summary-card">
                         <h3>Order Summary</h3>
@@ -69,7 +73,8 @@
                             <span>Total</span>
                             <span id="cart-total">Rs 0</span>
                         </div>
-                        <button id="order-action" class="action action-primary action-large" onclick="placeOrder()">Place Order</button>
+                        <button id="order-action" class="action action-primary action-large"
+                            onclick="proceedToPayment()">Proceed to Payment</button>
                         <button class="action action-secondary" onclick="clearCart()">Clear Cart</button>
                     </div>
                 </div>
@@ -91,7 +96,8 @@
                 <span>Total:</span>
                 <span id="cart-total-sidebar">Rs 0</span>
             </div>
-            <button id="order-action-sidebar" class="action action-primary" onclick="placeOrder()">Place Order</button>
+            <button id="order-action-sidebar" class="action action-primary" onclick="proceedToPayment()">Proceed to
+                Payment</button>
         </div>
     </div>
 
@@ -103,41 +109,41 @@
     <script src="js/script.js"></script>
     <script>
         // Cart page specific functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize cart count
             updateCartCount();
-            
+
             // Display cart items
             displayCartItems();
-            
+
             // Update totals
             updateCartTotals();
         });
-        
+
         // Update cart totals for cart page
         function updateCartTotals() {
             const subtotal = getCartTotal();
             const deliveryFee = 100;
             const total = subtotal + deliveryFee;
-            
+
             const subtotalElement = document.getElementById('cart-subtotal');
             const totalElement = document.getElementById('cart-total');
-            
+
             if (subtotalElement) {
                 subtotalElement.textContent = `Rs ${subtotal}`;
             }
-            
+
             if (totalElement) {
                 totalElement.textContent = `Rs ${total}`;
             }
         }
-        
+
         // Display cart items for cart page
         function displayCartItems() {
             const cartItemsContainer = document.getElementById('cart-items');
             const cartItemsSidebar = document.getElementById('cart-items-sidebar');
             const cartTotalSidebar = document.getElementById('cart-total-sidebar');
-            
+
             if (cart.length === 0) {
                 const emptyMessage = '<p class="empty-cart">Your cart is empty</p>';
                 if (cartItemsContainer) {
@@ -151,16 +157,16 @@
                 }
                 return;
             }
-            
+
             let total = 0;
-            
+
             // Update main cart page
             if (cartItemsContainer) {
                 cartItemsContainer.innerHTML = '';
                 cart.forEach(item => {
                     const itemTotal = item.price * item.quantity;
                     total += itemTotal;
-                    
+
                     const cartItem = document.createElement('div');
                     cartItem.className = 'cart-item';
                     cartItem.innerHTML = `
@@ -181,13 +187,13 @@
                     cartItemsContainer.appendChild(cartItem);
                 });
             }
-            
+
             // Update sidebar
             if (cartItemsSidebar) {
                 cartItemsSidebar.innerHTML = '';
                 cart.forEach(item => {
                     const itemTotal = item.price * item.quantity;
-                    
+
                     const cartItem = document.createElement('div');
                     cartItem.className = 'cart-item';
                     cartItem.innerHTML = `
@@ -208,16 +214,16 @@
                     cartItemsSidebar.appendChild(cartItem);
                 });
             }
-            
+
             // Update sidebar total
             if (cartTotalSidebar) {
                 cartTotalSidebar.textContent = `Rs ${total}`;
             }
-            
+
             // Update totals for cart page
             updateCartTotals();
         }
-        
+
         // Clear cart function
         function clearCart() {
             cart = [];
@@ -226,6 +232,27 @@
             displayCartItems();
             showNotification('Cart cleared!');
         }
+
+        // Proceed to payment replaces placeOrder inside cart page
+        function proceedToPayment() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!', 'error');
+                return;
+            }
+
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) {
+                showNotification('Please login to proceed to payment', 'error');
+                setTimeout(() => {
+                    localStorage.setItem('redirectAfterLogin', 'pay.html');
+                    window.location.href = 'login.html';
+                }, 1500);
+                return;
+            }
+
+            window.location.href = 'pay.html';
+        }
     </script>
 </body>
+
 </html>

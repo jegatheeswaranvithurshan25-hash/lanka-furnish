@@ -632,20 +632,26 @@ function placeOrder() {
         showNotification('Your cart is empty!', 'error');
         return;
     }
-    
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    showNotification(`Order placed successfully! Total: Rs ${total}`, 'success');
-    
-    // Clear cart
-    cart = [];
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-    displayCartItems();
-    
-    // Close cart
-    setTimeout(() => {
-        toggleCart();
-    }, 2000);
+
+    const currentUser = localStorage.getItem('currentUser');
+    if (!currentUser) {
+        showNotification('Please login to proceed to payment', 'error');
+        setTimeout(() => {
+            localStorage.setItem('redirectAfterLogin', 'pay.html');
+            window.location.href = 'login.html';
+        }, 1500);
+        return;
+    }
+
+    // Hide sidebar if proceed was clicked from sidebar
+    const sidebar = document.getElementById('cart-sidebar');
+    const overlay = document.getElementById('cart-overlay');
+    if (sidebar && sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+    }
+
+    window.location.href = 'pay.html';
 }
 
 // Notifications
@@ -771,7 +777,28 @@ function handleLogin(e) {
     // In a real application, you would validate against a database
     localStorage.setItem('currentUser', email);
     showNotification('Login successful!', 'success');
-    closeModal();
+    
+    // Check if the modal exists before trying to close it
+    const loginModal = document.getElementById('login-modal');
+    if(loginModal && loginModal.classList.contains('active')) {
+        closeModal();
+    }
+
+    setTimeout(() => {
+        if (email === 'admin@lankafurnish.com') {
+            window.location.href = 'admin.html';
+        } else {
+            const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+            localStorage.removeItem('redirectAfterLogin');
+            window.location.href = redirectUrl;
+        }
+    }, 1000);
+}
+
+// Global logout function
+function logoutUser() {
+    localStorage.removeItem('currentUser');
+    showNotification('Logged out successfully', 'success');
     setTimeout(() => {
         window.location.href = 'index.html';
     }, 1000);
@@ -823,7 +850,7 @@ function handleRegister(e) {
     
     showNotification('Registration successful!', 'success');
     setTimeout(() => {
-        window.location.href = 'auth/login.html';
+        window.location.href = 'login.html';
     }, 1000);
 }
 
@@ -952,3 +979,28 @@ function togglePassword(inputId) {
 
 // Initialize cart count on page load
 updateCartCount();
+
+// Authentication state UI update
+document.addEventListener('DOMContentLoaded', function() {
+    const currentUser = localStorage.getItem('currentUser');
+    const authButtonsContainer = document.querySelector('.auth-buttons');
+    if (authButtonsContainer && currentUser) {
+        if (currentUser === 'admin@lankafurnish.com') {
+            if (window.location.pathname.includes('admin.html')) {
+                authButtonsContainer.innerHTML = `
+                    <button onclick="logoutUser()" style="padding: 10px 28px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-logout">Logout</button>
+                `;
+            } else {
+                authButtonsContainer.innerHTML = `
+                    <a href="admin.html" style="padding: 10px 28px; margin-right: 8px; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s;" id="action-admin">Admin Dashboard</a>
+                    <button onclick="logoutUser()" style="padding: 10px 28px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-logout">Logout</button>
+                `;
+            }
+        } else {
+            authButtonsContainer.innerHTML = `
+                <span style="margin-right: 15px; font-weight: 600; color: var(--text-color);">${currentUser}</span>
+                <button onclick="logoutUser()" style="padding: 10px 28px; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-logout">Logout</button>
+            `;
+        }
+    }
+});

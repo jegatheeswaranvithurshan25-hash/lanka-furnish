@@ -80,8 +80,8 @@
                             <button type="submit" class="action action-primary action-large">Sign In</button>
                         </div>
                         <div class="form-footer">
-                            <p>Don't have an account? <a href="auth/register.html">Create Account</a></p>
-                            <p><a href="auth/index.html">Continue as Guest</a></p>
+                            <p>Don't have an account? <a href="register.html">Create Account</a></p>
+                            <p><a href="index.html">Continue as Guest</a></p>
                         </div>
                     </form>
                 </div>
@@ -126,11 +126,16 @@
             
             // Simple validation
             if (email && password) {
-                // In a real application, you would validate against a database
                 localStorage.setItem('currentUser', email);
                 showNotification('Login successful!', 'success');
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    if (email === 'admin@lankafurnish.com') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+                        localStorage.removeItem('redirectAfterLogin');
+                        window.location.href = redirectUrl;
+                    }
                 }, 1000);
             } else {
                 showNotification('Please fill in all fields', 'error');

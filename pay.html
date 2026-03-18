@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanka Furnish - Payment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .payment-section {
+            padding: 120px 0 60px;
+            min-height: calc(100vh - 80px);
+            /* Adjust based on header/footer */
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .payment-content {
+            padding: 40px;
+        }
+
+        .payment-content h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .input-group input {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .col-50 {
+            flex: 1;
+        }
+
+        .summary-details {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 8px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .summary-row.total {
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .form-actions {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Lanka Furnish</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#menu">Menu</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- <div class="theme-toggle" onclick="toggleTheme()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-icon">
+                    <path id="sun-icon" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path id="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"/>
+                </svg>
+            </div> -->
+            <div class="cart-icon" onclick="toggleCart()">
+                <span class="cart-count">0</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 6h15l-1.5 9h-11l-2-8H6zm0 0L4 12h11" stroke="#D4AF37" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="9" cy="20" r="1" fill="#D4AF37" />
+                    <circle cx="17" cy="20" r="1" fill="#D4AF37" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-box">
+                <div class="payment-content">
+                    <h2>Checkout Payment</h2>
+
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="pay-subtotal">Rs 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery Fee</span>
+                            <span>Rs 100</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="pay-total">Rs 0</span>
+                        </div>
+                    </div>
+
+                    <form id="payment-form" class="payment-form" onsubmit="handlePayment(event)">
+                        <div class="input-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" maxlength="19"
+                                required>
+                        </div>
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="input-group">
+                                    <label for="card-expiry">Expiry Date</label>
+                                    <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                            </div>
+                            <div class="col-50">
+                                <div class="input-group">
+                                    <label for="card-cvv">CVV</label>
+                                    <input type="password" id="card-cvv" placeholder="XXX" maxlength="3" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="action action-primary action-large"
+                                style="width: 100%;">Complete Payment</button>
+                        </div>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="cart.html"
+                                style="color: var(--text-color); text-decoration: none; font-size: 14px;">&larr; Return
+                                to Cart</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be injected here -->
+        </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span>Total:</span>
+                <span id="cart-total">Rs 0</span>
+            </div>
+            <button id="order-action" class="action action-primary" onclick="proceedToPaymentFromSidebar()">Proceed to
+                Payment</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if user is logged in
+            const currentUser = localStorage.getItem('currentUser');
+            if (!currentUser) {
+                showNotification('Please login to continue', 'error');
+                localStorage.setItem('redirectAfterLogin', 'pay.html');
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1500);
+                return;
+            }
+
+            // Check if cart has items
+            if (cart.length === 0) {
+                showNotification('Your cart is empty', 'error');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+                return;
+            }
+
+            // Update cart count and totals
+            updateCartCount();
+            displayCartItems();
+
+            // Calculate and display page totals
+            const subtotal = getCartTotal();
+            const deliveryFee = 100;
+            const total = subtotal + deliveryFee;
+
+            document.getElementById('pay-subtotal').textContent = `Rs ${subtotal}`;
+            document.getElementById('pay-total').textContent = `Rs ${total}`;
+
+            // Add simple formatting for card inputs
+            const cardNumber = document.getElementById('card-number');
+            cardNumber.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                let formattedValue = '';
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formattedValue += ' ';
+                    }
+                    formattedValue += value[i];
+                }
+                e.target.value = formattedValue;
+            });
+
+            const cardExpiry = document.getElementById('card-expiry');
+            cardExpiry.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                e.target.value = value;
+            });
+        });
+
+        // Function for the sidebar checkout button
+        function proceedToPaymentFromSidebar() {
+            window.location.href = 'pay.html';
+        }
+
+        // Handle Payment Submission
+        function handlePayment(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('card-name').value;
+            const number = document.getElementById('card-number').value.replace(/\s/g, '');
+            const expiry = document.getElementById('card-expiry').value;
+            const cvv = document.getElementById('card-cvv').value;
+
+            // Simple validation
+            if (number.length < 16) {
+                showNotification('Please enter a valid 16-digit card number', 'error');
+                return;
+            }
+            if (expiry.length < 5) {
+                showNotification('Please enter a valid expiry date (MM/YY)', 'error');
+                return;
+            }
+            if (cvv.length < 3) {
+                showNotification('Please enter a valid 3-digit CVV', 'error');
+                return;
+            }
+
+            const subtotal = getCartTotal();
+            const total = subtotal + 100;
+
+            showNotification(`Payment successful! Order placed for Rs ${total}`, 'success');
+
+            // Clear cart
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
