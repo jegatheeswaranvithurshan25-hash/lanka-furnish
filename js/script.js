@@ -756,8 +756,9 @@ function handleLogin(e) {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     
-    // Validate email
-    if (!validateField('login-email', email, validateEmail, 'Please enter a valid email address')) {
+    // Validate email or admin username
+    const validateLoginId = (val) => val.trim() === 'admin' || validateEmail(val);
+    if (!validateField('login-email', email, validateLoginId, 'Please enter a valid email or username')) {
         isValid = false;
     }
     
@@ -774,8 +775,30 @@ function handleLogin(e) {
         return;
     }
     
+    // Properly check for admin user
+    if (email.trim() === 'admin' || email.trim() === 'admin@lankafurnish.com') {
+        if (password !== 'admin123') {
+            showFieldError('login-password', 'Incorrect admin password');
+            showNotification('Invalid admin password', 'error');
+            return;
+        } else {
+            localStorage.setItem('currentUser', 'admin@lankafurnish.com'); // normalize admin username internally
+            showNotification('Admin login successful!', 'success');
+            
+            const loginModal = document.getElementById('login-modal');
+            if(loginModal && loginModal.classList.contains('active')) {
+                closeModal();
+            }
+
+            setTimeout(() => {
+                window.location.href = 'admin.html';
+            }, 1000);
+            return;
+        }
+    }
+
     // In a real application, you would validate against a database
-    localStorage.setItem('currentUser', email);
+    localStorage.setItem('currentUser', email.trim());
     showNotification('Login successful!', 'success');
     
     // Check if the modal exists before trying to close it
@@ -785,13 +808,9 @@ function handleLogin(e) {
     }
 
     setTimeout(() => {
-        if (email === 'admin@lankafurnish.com') {
-            window.location.href = 'admin.html';
-        } else {
-            const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
-            localStorage.removeItem('redirectAfterLogin');
-            window.location.href = redirectUrl;
-        }
+        const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+        localStorage.removeItem('redirectAfterLogin');
+        window.location.href = redirectUrl;
     }, 1000);
 }
 
@@ -862,7 +881,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (loginEmail) {
         loginEmail.addEventListener('blur', function() {
-            validateField('login-email', this.value, validateEmail, 'Please enter a valid email address');
+            const validateLoginId = (val) => val.trim() === 'admin' || validateEmail(val);
+            validateField('login-email', this.value, validateLoginId, 'Please enter a valid email or username');
         });
         
         loginEmail.addEventListener('input', function() {
@@ -984,18 +1004,22 @@ updateCartCount();
 document.addEventListener('DOMContentLoaded', function() {
     const currentUser = localStorage.getItem('currentUser');
     const authButtonsContainer = document.querySelector('.auth-buttons');
+    const navUrlList = document.querySelector('.nav ul');
+
+    // Add admin link to nav bar if user is admin
+    if (currentUser === 'admin@lankafurnish.com' && navUrlList) {
+        if (!window.location.pathname.includes('admin.html')) {
+            const adminLi = document.createElement('li');
+            adminLi.innerHTML = '<a href="admin.html">Admin</a>';
+            navUrlList.appendChild(adminLi);
+        }
+    }
+
     if (authButtonsContainer && currentUser) {
         if (currentUser === 'admin@lankafurnish.com') {
-            if (window.location.pathname.includes('admin.html')) {
-                authButtonsContainer.innerHTML = `
-                    <button onclick="logoutUser()" style="padding: 10px 28px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-logout">Logout</button>
-                `;
-            } else {
-                authButtonsContainer.innerHTML = `
-                    <a href="admin.html" style="padding: 10px 28px; margin-right: 8px; border-radius: 20px; background: #F5F5F5; color: #1E1E1E; font-weight: 600; text-decoration: none; display: inline-block; transition: background 0.3s;" id="action-admin">Admin Dashboard</a>
-                    <button onclick="logoutUser()" style="padding: 10px 28px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-logout">Logout</button>
-                `;
-            }
+            authButtonsContainer.innerHTML = `
+                <button onclick="logoutUser()" style="padding: 10px 28px; border-radius: 20px; background: linear-gradient(135deg, #D4AF37, #FFD700); color: #1E1E1E; font-weight: 600; border: none; cursor: pointer; transition: background 0.3s;" id="action-logout">Logout</button>
+            `;
         } else {
             authButtonsContainer.innerHTML = `
                 <span style="margin-right: 15px; font-weight: 600; color: var(--text-color);">${currentUser}</span>

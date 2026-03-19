@@ -58,7 +58,7 @@
                                     <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     <circle cx="8.5" cy="7" r="4" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                <input type="email" id="login-email" placeholder="Email address" required>
+                                <input type="text" id="login-email" placeholder="Email address or username" required>
                             </div>
                         </div>
                         <div class="input-group">
@@ -126,16 +126,27 @@
             
             // Simple validation
             if (email && password) {
-                localStorage.setItem('currentUser', email);
+                // Properly check for admin user
+                if (email.trim() === 'admin' || email.trim() === 'admin@lankafurnish.com') {
+                    if (password !== 'admin123') {
+                        showNotification('Invalid admin password', 'error');
+                        return;
+                    } else {
+                        localStorage.setItem('currentUser', 'admin@lankafurnish.com');
+                        showNotification('Admin login successful!', 'success');
+                        setTimeout(() => {
+                            window.location.href = 'admin.html';
+                        }, 1000);
+                        return;
+                    }
+                }
+                
+                localStorage.setItem('currentUser', email.trim());
                 showNotification('Login successful!', 'success');
                 setTimeout(() => {
-                    if (email === 'admin@lankafurnish.com') {
-                        window.location.href = 'admin.html';
-                    } else {
-                        const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
-                        localStorage.removeItem('redirectAfterLogin');
-                        window.location.href = redirectUrl;
-                    }
+                    const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+                    localStorage.removeItem('redirectAfterLogin');
+                    window.location.href = redirectUrl;
                 }, 1000);
             } else {
                 showNotification('Please fill in all fields', 'error');
