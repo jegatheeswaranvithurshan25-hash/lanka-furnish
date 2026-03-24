@@ -777,7 +777,7 @@ function handleLogin(e) {
     
     // Properly check for admin user
     if (email.trim() === 'admin' || email.trim() === 'admin@lankafurnish.com') {
-        if (password !== 'admin123') {
+        if (password !== 'admin@123') {
             showFieldError('login-password', 'Incorrect admin password');
             showNotification('Invalid admin password', 'error');
             return;
